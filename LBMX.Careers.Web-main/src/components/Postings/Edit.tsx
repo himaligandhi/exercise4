@@ -14,6 +14,7 @@ import schema, { fromFormValues, toFormValues } from './schema';
 export default function Edit() {
   const [posting, setPosting] = useState<BaseForm>(toFormValues());
   const { id } = useParams<PostingsRouteParams>();
+  const { postingId } = useParams<PostingsRouteParams>();
   const history = useHistory();
   const { formatDate } = utils;
 
@@ -26,7 +27,7 @@ export default function Edit() {
   }
 
   function handleSubmit() {
-    postingsService.updatePosting(id, fromFormValues(posting));
+    postingsService.updatePosting(postingId, fromFormValues(posting));
   }
 
   useEffect(() => {

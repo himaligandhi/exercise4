@@ -2,6 +2,7 @@ import { Postings } from './';
 
 export interface PostingsRouteParams {
   id: string;
+  postingId:string
 }
 
 const routes = (mountPoint: string) => ({
@@ -17,7 +18,7 @@ const routes = (mountPoint: string) => ({
     component: Postings.Show,
   },
   edit: {
-    path: `${mountPoint}/:id/edit`,
+    path: `${mountPoint}/:posting/edit`,
     name: 'Edit Posting',
     component: Postings.Edit,
   },

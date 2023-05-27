@@ -49,6 +49,17 @@ router.delete('/:_id', function (req, res, next) {
   });
 });
 
+/*UPDATE job posting*/
+router.get('/:postingId', function (req, res, next) {
+  JobPosting.findById(req.params.postingId, function (err, posting) {
+    if (err) {
+      res.status(500).json({ error: err });
+    } else {
+      res.status(200).json(posting);
+    }
+  });
+});
+
 /* GET remove all postings */
 /* This is useful for testing purposes */
 router.get('/nuke', function (req, res, next) {
